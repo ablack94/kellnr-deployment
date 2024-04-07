@@ -1,0 +1,16 @@
+---
+version: "3.8"
+services:
+  trilium:
+    image: ghcr.io/kellnr/kellnr:5.0.0
+    container_name: kellnr
+    restart: unless-stopped
+    ports:
+      - 0.0.0.0:9000:9000
+    environment:
+      - "KELLNR_LOCAL__PORT=9000"
+      - "KELLNR_ORIGIN__HOSTNAME=crates.ablack94.dev"
+      - "KELLNR_ORIGIN__PROTOCOL=https"
+    volumes:
+      - /opt/ablack/crates:/opt/kdata
+
